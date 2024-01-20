@@ -1,0 +1,5 @@
+C:\Users\Eisbaer\source\repos\BF4Emu\BlazeLibWV\bin\Debug\BlazeLibWV.dll
+C:\Users\Eisbaer\source\repos\BF4Emu\BlazeLibWV\bin\Debug\BlazeLibWV.pdb
+C:\Users\Eisbaer\source\repos\BF4Emu\BlazeLibWV\obj\Debug\BlazeLibWV.csproj.CoreCompileInputs.cache
+C:\Users\Eisbaer\source\repos\BF4Emu\BlazeLibWV\obj\Debug\BlazeLibWV.dll
+C:\Users\Eisbaer\source\repos\BF4Emu\BlazeLibWV\obj\Debug\BlazeLibWV.pdb
