@@ -84,7 +84,7 @@ namespace CnCGenerals2EMU
         {
             string[] lines = data.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             Log("[WEBS] Request: " + lines[0]);
-            Logger.Log("[WEBS] Request: " + lines[0], System.Drawing.Color.DarkMagenta);
+            //Logger.Log("[WEBS] Request: " + lines[0], System.Drawing.Color.DarkMagenta);
             string cmd = lines[0].Split(' ')[0];
             string url = lines[0].Split(' ')[1].Split(':')[0];
             if (cmd == "GET")

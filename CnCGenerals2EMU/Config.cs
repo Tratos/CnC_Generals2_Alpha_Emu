@@ -22,6 +22,7 @@ namespace CnCGenerals2EMU
         public static string LogLevel;
         public static string MakePacket;
         public static string RefreshPacket;
+        public static string Exe;
 
         public static void Init()
         {
@@ -55,6 +56,9 @@ namespace CnCGenerals2EMU
 
                     RefreshPacket = Config.FindEntry("RefreshPacket");
                     Logger.Log("RefreshPacket's = " + RefreshPacket);
+
+                    Exe = Config.FindEntry("Exe");
+                    Logger.Log("Exe Path = " + Exe);
 
                 }
                 else

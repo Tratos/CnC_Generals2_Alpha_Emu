@@ -51,9 +51,15 @@
   <ItemGroup>
     <Compile Include="BackendLog.cs" />
     <Compile Include="BlazeServer.cs" />
+    <Compile Include="Commands\UserAddedCommand.cs" />
+    <Compile Include="Commands\UserAuthenticatedCommand.cs" />
+    <Compile Include="Commands\UserSessionExtendedDataUpdateNotificationCommand.cs" />
+    <Compile Include="Commands\UserUpdatedCommand.cs" />
     <Compile Include="Components\AccountsComponent.cs" />
     <Compile Include="Components\AssociationListsComponent.cs" />
+    <Compile Include="Components\AsyncNotification\AsyncUserSessions.cs" />
     <Compile Include="Components\AuthenticationComponent.cs" />
+    <Compile Include="Components\BlazeHelper.cs" />
     <Compile Include="Components\GameManagerComponent.cs" />
     <Compile Include="Components\InventoryComponent.cs" />
     <Compile Include="Components\RSPComponent.cs" />
@@ -82,6 +88,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderInfo.cs" />
+    <Compile Include="RedirectorServer.cs" />
     <Compile Include="Webserver.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

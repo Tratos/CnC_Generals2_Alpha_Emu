@@ -1,3 +1,4 @@
 LogLevel = Low
 MakePacket = true
 RefreshPacket = true
+Exe = C:\CnC\CnC.exe

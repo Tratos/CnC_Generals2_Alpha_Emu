@@ -47,6 +47,7 @@ namespace CnCGenerals2EMU
             Logger.box = rtb1;
             BlazeServer.box = rtb1;
             Webserver.box = rtb3;
+            RedirectorServer.box = rtb4;
 
             Logger.Log("BlazeServer for Command&Conquer Generals 2 ALPHA - by Eisbaer");
             Logger.Log("");
@@ -70,11 +71,13 @@ namespace CnCGenerals2EMU
             {
                 packetsAutoRefreshToolStripMenuItem.Checked = true;
                 Config.RefreshPacket = "true";
+                timer1.Enabled = true;
             }
             else
             {
                 packetsAutoRefreshToolStripMenuItem.Checked = false;
                 Config.RefreshPacket = "false";
+                timer1.Enabled = false;
             }
 
             onlyHighToolStripMenuItem.Checked = false;
@@ -99,6 +102,7 @@ namespace CnCGenerals2EMU
         {
             Webserver.Stop();
             BlazeServer.Stop();
+            RedirectorServer.Stop();
             Application.Exit();
         }
 
@@ -116,6 +120,7 @@ namespace CnCGenerals2EMU
         {
             Webserver.Stop();
             BlazeServer.Stop();
+            RedirectorServer.Stop();
             Application.Exit();
         }
 
@@ -208,6 +213,21 @@ namespace CnCGenerals2EMU
             }
         }
 
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            DeletePackets();
+        }
+
+        public void DeletePackets()
+        {
+            string[] files = Directory.GetFiles("logs\\packets\\", "*.bin");
+            foreach (string file in files)
+            {
+                File.Delete(file);
+            }
+
+        }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int n = listBox1.SelectedIndex;
@@ -224,216 +244,6 @@ namespace CnCGenerals2EMU
             List<Blaze.Tdf> Fields = Blaze.ReadPacketContent(p);
             foreach (Blaze.Tdf tdf in Fields)
                 tv1.Nodes.Add(TdfToTree(tdf));
-        }
-
-        public byte[] FileToByteArray(string fileName)
-        {
-            byte[] fileData = null;
-
-            using (FileStream fs = File.OpenRead(fileName))
-            {
-                using (BinaryReader binaryReader = new BinaryReader(fs))
-                {
-                    fileData = binaryReader.ReadBytes((int)fs.Length);
-                }
-            }
-            return fileData;
-        }
-
-        public void AddPacket(byte[] data)
-        {
-            MemoryStream m = new MemoryStream(data);
-            m.Seek(0, 0);
-            List<Blaze.Packet> result = Blaze.FetchAllBlazePackets(m);
-            lock (_sync)
-            {
-                packets.AddRange(result);
-            }
-        }
-
-        private TreeNode TdfToTree(Blaze.Tdf tdf)
-        {
-            TreeNode t, t2, t3;
-            switch (tdf.Type)
-            {
-                case 3:
-                    t = tdf.ToTree();
-                    Blaze.TdfStruct str = (Blaze.TdfStruct)tdf;
-                    if (str.startswith2)
-                        t.Text += " (Starts with 2)";
-                    foreach (Blaze.Tdf td in str.Values)
-                        t.Nodes.Add(TdfToTree(td));
-                    t.Name = (inlistcount++).ToString();
-                    inlist.Add(tdf);
-                    return t;
-                case 4:
-                    t = tdf.ToTree();
-                    Blaze.TdfList l = (Blaze.TdfList)tdf;
-                    if (l.SubType == 3)
-                    {
-                        List<Blaze.TdfStruct> l2 = (List<Blaze.TdfStruct>)l.List;
-                        for (int i = 0; i < l2.Count; i++)
-                        {
-                            t2 = new TreeNode("Entry #" + i);
-                            if (l2[i].startswith2)
-                                t2.Text += " (Starts with 2)";
-                            List<Blaze.Tdf> l3 = l2[i].Values;
-                            for (int j = 0; j < l3.Count; j++)
-                                t2.Nodes.Add(TdfToTree(l3[j]));
-                            t.Nodes.Add(t2);
-                        }
-                    }
-                    t.Name = (inlistcount++).ToString();
-                    inlist.Add(tdf);
-                    return t;
-                case 5:
-                    t = tdf.ToTree();
-                    Blaze.TdfDoubleList ll = (Blaze.TdfDoubleList)tdf;
-                    t2 = new TreeNode("List 1");
-                    if (ll.SubType1 == 3)
-                    {
-                        List<Blaze.TdfStruct> l2 = (List<Blaze.TdfStruct>)ll.List1;
-                        for (int i = 0; i < l2.Count; i++)
-                        {
-                            t3 = new TreeNode("Entry #" + i);
-                            if (l2[i].startswith2)
-                                t2.Text += " (Starts with 2)";
-                            List<Blaze.Tdf> l3 = l2[i].Values;
-                            for (int j = 0; j < l3.Count; j++)
-                                t3.Nodes.Add(TdfToTree(l3[j]));
-                            t2.Nodes.Add(t3);
-                        }
-                        t.Nodes.Add(t2);
-                    }
-                    t2 = new TreeNode("List 2");
-                    if (ll.SubType2 == 3)
-                    {
-                        List<Blaze.TdfStruct> l2 = (List<Blaze.TdfStruct>)ll.List2;
-                        for (int i = 0; i < l2.Count; i++)
-                        {
-                            t3 = new TreeNode("Entry #" + i);
-                            if (l2[i].startswith2)
-                                t2.Text += " (Starts with 2)";
-                            List<Blaze.Tdf> l3 = l2[i].Values;
-                            for (int j = 0; j < l3.Count; j++)
-                                t3.Nodes.Add(TdfToTree(l3[j]));
-                            t2.Nodes.Add(t3);
-                        }
-                        t.Nodes.Add(t2);
-                    }
-                    t.Name = (inlistcount++).ToString();
-                    inlist.Add(tdf);
-                    return t;
-                case 6:
-                    t = tdf.ToTree();
-                    Blaze.TdfUnion tu = (Blaze.TdfUnion)tdf;
-                    if (tu.UnionType != 0x7F)
-                    {
-                        t.Nodes.Add(TdfToTree(tu.UnionContent));
-                    }
-                    t.Name = (inlistcount++).ToString();
-                    inlist.Add(tdf);
-                    return t;
-                default:
-                    t = tdf.ToTree();
-                    t.Name = (inlistcount++).ToString();
-                    inlist.Add(tdf);
-                    return t;
-            }
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog d = new FolderBrowserDialog();
-            if (d.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string[] files = Directory.GetFiles(d.SelectedPath, "*.bin");
-                foreach (string file in files)
-                    File.Copy(file, "logs\\packets\\" + Path.GetFileName(file), true);
-                RefreshPackets();
-            }
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string text = toolStripTextBox2.Text;
-                byte[] buff = Helper.LabelToBytes(text);
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in buff)
-                    sb.Append(b.ToString("X2"));
-                toolStripTextBox3.Text = sb.ToString();
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string text = toolStripTextBox3.Text.Replace(" ", "").ToUpper();
-                MemoryStream m = new MemoryStream();
-                for (int i = 0; i < text.Length / 2; i++)
-                    m.WriteByte(Convert.ToByte(text.Substring(i * 2, 2), 16));
-                toolStripTextBox2.Text = Helper.BytesToLabel(m.ToArray());
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string text = toolStripTextBox4.Text.Replace(" ", "").ToUpper();
-                long l = Convert.ToInt64(text, 16);
-                MemoryStream m = new MemoryStream();
-                Helper.WriteCompressedInteger(m, l);
-                toolStripTextBox5.Text = Helper.ByteArrayToHexString(m.ToArray());
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string text = toolStripTextBox5.Text.Replace(" ", "").ToUpper();
-                MemoryStream m = new MemoryStream(Helper.HexStringToByteArray(text));
-                m.Seek(0, 0);
-                toolStripTextBox4.Text = Helper.ReadCompressedInteger(m).ToString("X");
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        private void playerProfileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form2 f = new Form2();
-            f.ShowDialog();
-        }
-
-        private void packetsAutoRefreshToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (packetsAutoRefreshToolStripMenuItem.Checked == true)
-            {
-                packetsAutoRefreshToolStripMenuItem.Checked = false;
-                timer1.Enabled = false;
-                Config.RefreshPacket = "false";
-            }
-            else
-            {
-                packetsAutoRefreshToolStripMenuItem.Checked = true;
-                timer1.Enabled = true;
-                Config.RefreshPacket = "true";
-            }
         }
 
         private void tv1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -557,5 +367,254 @@ namespace CnCGenerals2EMU
                 }
             }
         }
+
+        public byte[] FileToByteArray(string fileName)
+        {
+            byte[] fileData = null;
+
+            using (FileStream fs = File.OpenRead(fileName))
+            {
+                using (BinaryReader binaryReader = new BinaryReader(fs))
+                {
+                    fileData = binaryReader.ReadBytes((int)fs.Length);
+                }
+            }
+            return fileData;
+        }
+
+        public void AddPacket(byte[] data)
+        {
+            MemoryStream m = new MemoryStream(data);
+            m.Seek(0, 0);
+            List<Blaze.Packet> result = Blaze.FetchAllBlazePackets(m);
+            lock (_sync)
+            {
+                packets.AddRange(result);
+            }
+        }
+
+        private TreeNode TdfToTree(Blaze.Tdf tdf)
+        {
+            TreeNode t, t2, t3;
+            switch (tdf.Type)
+            {
+                case 3:
+                    t = tdf.ToTree();
+                    Blaze.TdfStruct str = (Blaze.TdfStruct)tdf;
+                    if (str.startswith2)
+                        t.Text += " (Starts with 2)";
+                    foreach (Blaze.Tdf td in str.Values)
+                        t.Nodes.Add(TdfToTree(td));
+                    t.Name = (inlistcount++).ToString();
+                    inlist.Add(tdf);
+                    return t;
+                case 4:
+                    t = tdf.ToTree();
+                    Blaze.TdfList l = (Blaze.TdfList)tdf;
+                    if (l.SubType == 3)
+                    {
+                        List<Blaze.TdfStruct> l2 = (List<Blaze.TdfStruct>)l.List;
+                        for (int i = 0; i < l2.Count; i++)
+                        {
+                            t2 = new TreeNode("Entry #" + i);
+                            if (l2[i].startswith2)
+                                t2.Text += " (Starts with 2)";
+                            List<Blaze.Tdf> l3 = l2[i].Values;
+                            for (int j = 0; j < l3.Count; j++)
+                                t2.Nodes.Add(TdfToTree(l3[j]));
+                            t.Nodes.Add(t2);
+                        }
+                    }
+                    t.Name = (inlistcount++).ToString();
+                    inlist.Add(tdf);
+                    return t;
+                case 5:
+                    t = tdf.ToTree();
+                    Blaze.TdfDoubleList ll = (Blaze.TdfDoubleList)tdf;
+                    t2 = new TreeNode("List 1");
+                    if (ll.SubType1 == 3)
+                    {
+                        List<Blaze.TdfStruct> l2 = (List<Blaze.TdfStruct>)ll.List1;
+                        for (int i = 0; i < l2.Count; i++)
+                        {
+                            t3 = new TreeNode("Entry #" + i);
+                            if (l2[i].startswith2)
+                                t2.Text += " (Starts with 2)";
+                            List<Blaze.Tdf> l3 = l2[i].Values;
+                            for (int j = 0; j < l3.Count; j++)
+                                t3.Nodes.Add(TdfToTree(l3[j]));
+                            t2.Nodes.Add(t3);
+                        }
+                        t.Nodes.Add(t2);
+                    }
+                    t2 = new TreeNode("List 2");
+                    if (ll.SubType2 == 3)
+                    {
+                        List<Blaze.TdfStruct> l2 = (List<Blaze.TdfStruct>)ll.List2;
+                        for (int i = 0; i < l2.Count; i++)
+                        {
+                            t3 = new TreeNode("Entry #" + i);
+                            if (l2[i].startswith2)
+                                t2.Text += " (Starts with 2)";
+                            List<Blaze.Tdf> l3 = l2[i].Values;
+                            for (int j = 0; j < l3.Count; j++)
+                                t3.Nodes.Add(TdfToTree(l3[j]));
+                            t2.Nodes.Add(t3);
+                        }
+                        t.Nodes.Add(t2);
+                    }
+                    t.Name = (inlistcount++).ToString();
+                    inlist.Add(tdf);
+                    return t;
+                case 6:
+                    t = tdf.ToTree();
+                    Blaze.TdfUnion tu = (Blaze.TdfUnion)tdf;
+                    if (tu.UnionType != 0x7F)
+                    {
+                        t.Nodes.Add(TdfToTree(tu.UnionContent));
+                    }
+                    t.Name = (inlistcount++).ToString();
+                    inlist.Add(tdf);
+                    return t;
+                default:
+                    t = tdf.ToTree();
+                    t.Name = (inlistcount++).ToString();
+                    inlist.Add(tdf);
+                    return t;
+            }
+        }
+
+
+
+
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog d = new FolderBrowserDialog();
+            if (d.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string[] files = Directory.GetFiles(d.SelectedPath, "*.bin");
+                foreach (string file in files)
+                    File.Copy(file, "logs\\packets\\" + Path.GetFileName(file), true);
+                RefreshPackets();
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string text = toolStripTextBox2.Text;
+                byte[] buff = Helper.LabelToBytes(text);
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in buff)
+                    sb.Append(b.ToString("X2"));
+                toolStripTextBox3.Text = sb.ToString();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string text = toolStripTextBox3.Text.Replace(" ", "").ToUpper();
+                MemoryStream m = new MemoryStream();
+                for (int i = 0; i < text.Length / 2; i++)
+                    m.WriteByte(Convert.ToByte(text.Substring(i * 2, 2), 16));
+                toolStripTextBox2.Text = Helper.BytesToLabel(m.ToArray());
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string text = toolStripTextBox4.Text.Replace(" ", "").ToUpper();
+                long l = Convert.ToInt64(text, 16);
+                MemoryStream m = new MemoryStream();
+                Helper.WriteCompressedInteger(m, l);
+                toolStripTextBox5.Text = Helper.ByteArrayToHexString(m.ToArray());
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string text = toolStripTextBox5.Text.Replace(" ", "").ToUpper();
+                MemoryStream m = new MemoryStream(Helper.HexStringToByteArray(text));
+                m.Seek(0, 0);
+                toolStripTextBox4.Text = Helper.ReadCompressedInteger(m).ToString("X");
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void playerProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+        }
+
+        private void packetsAutoRefreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (packetsAutoRefreshToolStripMenuItem.Checked == true)
+            {
+                packetsAutoRefreshToolStripMenuItem.Checked = false;
+                timer1.Enabled = false;
+                Config.RefreshPacket = "false";
+            }
+            else
+            {
+                packetsAutoRefreshToolStripMenuItem.Checked = true;
+                timer1.Enabled = true;
+                Config.RefreshPacket = "true";
+            }
+        }
+
+     
+
+        private void startRedirectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string backend = toolStripTextBox6.Text;
+            string backPort = toolStripTextBox7.Text;
+            string targethost = toolStripTextBox8.Text;
+            string targetport = toolStripTextBox9.Text;
+
+            RedirectorServer.backend = backend;
+            RedirectorServer.backPort = Convert.ToInt32(backPort);
+            RedirectorServer.targethost = targethost;
+            RedirectorServer.targetPort = Convert.ToInt32(targetport);
+
+            RedirectorServer.Start();
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            string args = rtb6.Text.Replace("\r", "").Replace("\n", " ");
+            while (args.Contains("  "))
+                args = args.Replace("  ", " ");
+            Helper.RunShell(Config.Exe, args);
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            string args = rtb5.Text.Replace("\r", "").Replace("\n", " ");
+            while (args.Contains("  "))
+                args = args.Replace("  ", " ");
+            Helper.RunShell(Config.Exe, args);
+        }
+
+
     }
 }
