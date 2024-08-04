@@ -53,6 +53,7 @@ namespace CnCGenerals2EMU
             Logger.Log("");
 
             Config.InitialConfig();
+            RefreshProfiles();
 
             if (Config.MakePacket.ToLower() == "true")
             {
@@ -226,6 +227,14 @@ namespace CnCGenerals2EMU
                 File.Delete(file);
             }
 
+        }
+
+        private void RefreshProfiles()
+        {
+            Profiles.Refresh();
+            toolStripComboBox1.Items.Clear();
+            foreach (Profile p in Profiles.profiles)
+                toolStripComboBox1.Items.Add(p.id + ": " + p.name);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -484,10 +493,6 @@ namespace CnCGenerals2EMU
             }
         }
 
-
-
-
-
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog d = new FolderBrowserDialog();
@@ -582,8 +587,6 @@ namespace CnCGenerals2EMU
             }
         }
 
-     
-
         private void startRedirectorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string backend = toolStripTextBox6.Text;
@@ -601,6 +604,14 @@ namespace CnCGenerals2EMU
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
+            int n = toolStripComboBox1.SelectedIndex;
+            if (n == -1)
+            {
+                return;
+            }
+            toolStripComboBox1.Enabled = false;
+            Helper.userProfil = n;
+
             string args = rtb6.Text.Replace("\r", "").Replace("\n", " ");
             while (args.Contains("  "))
                 args = args.Replace("  ", " ");
@@ -615,6 +626,11 @@ namespace CnCGenerals2EMU
             Helper.RunShell(Config.Exe, args);
         }
 
-
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+            RefreshProfiles();
+        }
     }
 }

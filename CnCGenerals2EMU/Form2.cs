@@ -39,8 +39,9 @@ namespace CnCGenerals2EMU
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             string name = toolStripTextBox1.Text;
+            string mail = toolStripTextBox2.Text;
             Profiles.Refresh();
-            Profiles.Create(name);
+            Profiles.Create(name, mail);
             Profiles.Refresh();
             RefreshProfiles();
         }

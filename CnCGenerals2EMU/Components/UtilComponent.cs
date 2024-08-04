@@ -53,9 +53,9 @@ namespace CnCGenerals2EMU
 
             if (pi.isServer)  //Make as a Server !
             {
-            pi.game = new GameInfo();
-            pi.profile = Profiles.Create("bf4.server.pc@ea.com", 999);
-            pi.userId = 999;
+                pi.game = new GameInfo();
+                pi.profile = Profiles.Create("cnc.server", 999, "cnc.server.pc@ea.com");
+                pi.userId = 999;
             }
 
             Blaze.TdfStruct CINF = (Blaze.TdfStruct)input[1];

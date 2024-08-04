@@ -51,12 +51,26 @@
   <ItemGroup>
     <Compile Include="BackendLog.cs" />
     <Compile Include="BlazeServer.cs" />
+    <Compile Include="Commands\NotifyClientGameSetupCommand.cs" />
+    <Compile Include="Commands\NotifyGamePlayerStateChangeCommand.cs" />
+    <Compile Include="Commands\NotifyGameSettingsChangeCommand.cs" />
+    <Compile Include="Commands\NotifyGameStateChangeCommand.cs" />
+    <Compile Include="Commands\NotifyPlatformHostInitializedCommand.cs" />
+    <Compile Include="Commands\NotifyPlayerJoinCompletedCommand.cs" />
+    <Compile Include="Commands\NotifyPlayerJoiningCommand.cs" />
+    <Compile Include="Commands\NotifyPlayerRemovedCommand.cs" />
+    <Compile Include="Commands\NotifyServerGameSetupCommand.cs" />
+    <Compile Include="Commands\NotifyUserAddedCommand.cs" />
+    <Compile Include="Commands\NotifyUserRemovedCommand.cs" />
+    <Compile Include="Commands\NotifyUserStatusCommand.cs" />
     <Compile Include="Commands\UserAddedCommand.cs" />
     <Compile Include="Commands\UserAuthenticatedCommand.cs" />
     <Compile Include="Commands\UserSessionExtendedDataUpdateNotificationCommand.cs" />
     <Compile Include="Commands\UserUpdatedCommand.cs" />
     <Compile Include="Components\AccountsComponent.cs" />
     <Compile Include="Components\AssociationListsComponent.cs" />
+    <Compile Include="Components\AsyncNotification\AsyncGameManager.cs" />
+    <Compile Include="Components\AsyncNotification\AsyncStats.cs" />
     <Compile Include="Components\AsyncNotification\AsyncUserSessions.cs" />
     <Compile Include="Components\AuthenticationComponent.cs" />
     <Compile Include="Components\BlazeHelper.cs" />

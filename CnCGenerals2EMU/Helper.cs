@@ -13,6 +13,8 @@ namespace CnCGenerals2EMU
 {
     public static class Helper
     {
+        public static long userProfil;
+
         public static List<string> ConvertStringList(string data)
         {
             List<string> res = new List<string>();
