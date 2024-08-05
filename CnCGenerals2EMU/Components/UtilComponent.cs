@@ -25,6 +25,9 @@ namespace CnCGenerals2EMU
                 case 0x08:
                     PostAuth(p, pi, ns);
                     break;
+                case 0x16:
+                    SetClientMetrics(p, pi, ns);
+                    break;
                 default:
                     Logger.Log("[CLNT] #" + pi.userId + " Component: [" + p.Component + "] # Command: " + p.Command + " not found.", System.Drawing.Color.Red);
                     break;
@@ -186,6 +189,12 @@ namespace CnCGenerals2EMU
             ns.Flush();
         }
 
+        private static void SetClientMetrics(Blaze.Packet p, PlayerInfo pi, NetworkStream ns)
+        {
+            byte[] buff = Blaze.CreatePacket(p.Component, p.Command, 0, 0x1000, p.ID, new List<Blaze.Tdf>());
+            ns.Write(buff, 0, buff.Length);
+            ns.Flush();
+        }
 
     }
 }
