@@ -15,6 +15,7 @@ namespace CnCGenerals2EMU
 {
     public partial class Form1 : Form
     {
+        public string loc = Path.GetDirectoryName(Application.ExecutablePath) + "\\";
         public readonly object _sync = new object();
         public List<Blaze.Packet> packets = new List<Blaze.Packet>();
         public int packetCount = 0;
@@ -23,9 +24,19 @@ namespace CnCGenerals2EMU
         public int clientcount;
         public bool makePackets;
 
+        private List<string> wordList = new List<string> {};
+        private ToolTip toolTip = new ToolTip();
+
         public Form1()
         {
             InitializeComponent();
+            AttachAutoCompleteHandler(rtb5);
+            AttachAutoCompleteHandler(rtb6);
+        }
+
+        private void AttachAutoCompleteHandler(RichTextBox richTextBox)
+        {
+            richTextBox.KeyUp += (sender, e) => HandleAutoCompleteWithTooltips(richTextBox, e, wordList, toolTip);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -53,6 +64,7 @@ namespace CnCGenerals2EMU
             Logger.Log("");
 
             Config.InitialConfig();
+            readConfig();
             RefreshProfiles();
 
             if (Config.MakePacket.ToLower() == "true")
@@ -106,6 +118,93 @@ namespace CnCGenerals2EMU
             RedirectorServer.Stop();
             Application.Exit();
         }
+
+        private void readConfig()
+        {
+            string filePath = loc + "conf\\cnc_commands.txt";
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    wordList.AddRange(lines);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log("Error: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void richTextBox_KeyUp(object sender, RichTextBox richTextBox, KeyEventArgs e)
+        {
+            HandleAutoCompleteWithTooltips(richTextBox, e, wordList, toolTip);
+        }
+
+        private void HandleAutoCompleteWithTooltips(RichTextBox richTextBox, KeyEventArgs e, List<string> wordList, ToolTip toolTip)
+        {
+            string currentWord = "";
+
+            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                toolTip.Hide(richTextBox);
+                return;
+            }
+
+            var caretPosition = richTextBox.SelectionStart;
+            var text = richTextBox.Text.Substring(0, caretPosition);
+            var lastSpaceIndex = text.LastIndexOf(' ');
+
+            if (lastSpaceIndex != -1)
+            {
+                currentWord = text.Substring(lastSpaceIndex + 1);
+            }
+            else
+            {
+                currentWord = text;
+            }
+
+            var matchingWords = wordList.Where(w => w.StartsWith(currentWord, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if (matchingWords.Count == 1 && !string.Equals(currentWord, matchingWords[0], StringComparison.OrdinalIgnoreCase))
+            {
+                var remainder = matchingWords[0].Substring(currentWord.Length);
+                richTextBox.Text = richTextBox.Text.Insert(caretPosition, remainder);
+                richTextBox.SelectionStart = caretPosition;
+                richTextBox.SelectionLength = remainder.Length;
+                richTextBox.SelectionColor = Color.Black;
+                richTextBox.SelectionStart = caretPosition + remainder.Length;
+                richTextBox.SelectionLength = 0;
+                toolTip.Hide(richTextBox);
+            }
+            else if (matchingWords.Count > 0)
+            {
+                var wordSuggestions = string.Join(", ", matchingWords);
+                var cursorPosition = richTextBox.GetPositionFromCharIndex(caretPosition);
+                toolTip.Show(wordSuggestions, richTextBox, cursorPosition.X, cursorPosition.Y + 20);
+
+                int wordStartIndex = caretPosition - currentWord.Length;
+                richTextBox.SelectionStart = wordStartIndex;
+                richTextBox.SelectionLength = currentWord.Length;
+                richTextBox.SelectionColor = Color.Red;
+                richTextBox.SelectionStart = caretPosition;
+                richTextBox.SelectionLength = 0;
+                richTextBox.SelectionColor = Color.Black;
+            }
+            else
+            {
+                toolTip.Hide(richTextBox);
+                int wordStartIndex = caretPosition - currentWord.Length;
+                richTextBox.SelectionStart = wordStartIndex;
+                richTextBox.SelectionLength = currentWord.Length;
+                richTextBox.SelectionColor = Color.Red;
+                richTextBox.SelectionStart = caretPosition;
+                richTextBox.SelectionLength = 0;
+                richTextBox.SelectionColor = Color.Black;
+            }
+        }
+
 
         private void startBlazeServerToolStripMenuItem_Click(object sender, EventArgs e)
         {

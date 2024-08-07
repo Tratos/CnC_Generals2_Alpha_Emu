@@ -126,52 +126,7 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>248, 17</value>
   </metadata>
-  <metadata name="toolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>650, 17</value>
-  </metadata>
-  <metadata name="toolStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>755, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripButton8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripButton11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>353, 17</value>
-  </metadata>
-  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>545, 17</value>
-  </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>248, 17</value>
-  </metadata>
   <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -188,12 +143,45 @@
 </value>
   </data>
   <data name="rtb5.Text" xml:space="preserve">
-    <value>-thinclient 1 -level levels/FrontEndTest/FrontEndTest -Game.DefaultLayerInclusion StartupMode=Game;Gamemode=ConquestLarge -Blaze.ClientAutoAccountCreation true -Client.IsMultiplayer True -ClientDrawStats true -VeniceUI.UseSparta false -RtsClientSettings.BlazeEnvironment PROD -RtsClientSettings.BlazeEnvironmentEnum 0 -RtsClientSettings.OriginLogLevelEnum 5 -RtsClientSettings.UseBlaze True -RtsClientSettings.UseOrigin False -RtsClientSettings.WebBaseUrl http://127.0.0.1 -RtsClientSettings.WebParamsGameOver post=1 RtsClientSettings.WebPathFrontend /cncg2/shell/index.html -RtsClientSettings.WebPathIngameChat /cncg2/shell/messaging/gameMessageInterface.html -RtsClientSettings.WebPathIngameMenu /cncg2/shell/gameOptionsInterface.html -RtsClientSettings.WebPathDevPage /cncg2/shell/DevIndex.html -RtsClientSettings.WebPathRmtPage /cncg2/shell/rmtWrapper.html -RtsClientSettings.BaseConfigUrl http://127.0.0.1/cncg2/config.cncg2/ -RtsClientSettings.EAGenericAuthToken toto -RtsClientSettings.EALaunchEAID 1000 -RtsClientSettings.EALaunchEnv PROD -trackArenas Level -UnlocksProfile.unlockAllKitsCheat true -UnlocksProfile.unlockAllKitUnlocksCheat true -Player.EnableAllUnlocks true -Core.LogLevel Debug -Core.DiablogLevel Debug -Network.ClientPort 25100 -Network.ProtocolVersion 74 -Network.ServerAddress "127.0.0.1" -Network.ServerPort 25200 -Online.Backend Backend_Lan -Online.ForceOnline true -PreRound.MinimumPlayersCount 1 -PreRound.OverrideMinimumPlayersCount true -Player.allowRandomSpawnPointSelection true -Server.PLayerCountNeededForMultiplayer 1 -Server.forceCurrentMapOnLoad true -Server.ForceStartMapOnLoad true -Server.ScoringLogEnabled 1 -GameMode.disbalePreRound true -Game.DisablePreRound true -Game.logFileEnable true -Game.fastStartupEnable true -GameSettings.MaxPlayerCount 64 -Client.Team 1 -Game.MaxPlayerCount 1 -Game.MaxSpectatorCount 1 -client.joinMultiplayer true -LocalPlayer.respawn 1 -LocalPlayer.respawn true -RtsClientSettings.EnableLogging true -Core.ForceDebugLog true -Game.LogFileEnable true -Server.AdministrationLogEnabled true -Debug.B4BugMenuToggleEnabled true -Game.DisablePreRound true</value>
+    <value>-thinclient 1 -level levels/SP/Alpha_Tutorial/Alpha_Tutorial -Game.DefaultLayerInclusion StartupMode=Game;Gamemode=ConquestLarge -Blaze.ClientAutoAccountCreation true -Client.IsMultiplayer True -ClientDrawStats true -VeniceUI.UseSparta false -RtsClientSettings.BlazeEnvironment PROD -RtsClientSettings.BlazeEnvironmentEnum 0 -RtsClientSettings.OriginLogLevelEnum 5 -RtsClientSettings.UseBlaze True -RtsClientSettings.UseOrigin False -RtsClientSettings.WebBaseUrl http://127.0.0.1 -RtsClientSettings.WebParamsGameOver post=1 RtsClientSettings.WebPathFrontend /cncg2/shell/index.html -RtsClientSettings.WebPathIngameChat /cncg2/shell/messaging/gameMessageInterface.html -RtsClientSettings.WebPathIngameMenu /cncg2/shell/gameOptionsInterface.html -RtsClientSettings.WebPathDevPage /cncg2/shell/DevIndex.html -RtsClientSettings.WebPathRmtPage /cncg2/shell/rmtWrapper.html -RtsClientSettings.BaseConfigUrl http://127.0.0.1/cncg2/config.cncg2/ -RtsClientSettings.EAGenericAuthToken toto -RtsClientSettings.EALaunchEAID 1000 -RtsClientSettings.EALaunchEnv PROD -trackArenas Level -UnlocksProfile.unlockAllKitsCheat true -UnlocksProfile.unlockAllKitUnlocksCheat true -Player.EnableAllUnlocks true -Core.LogLevel Debug -Core.DiablogLevel Debug -Network.ClientPort 25100 -Network.ProtocolVersion 74 -Network.ServerAddress "127.0.0.1" -Network.ServerPort 25200 -Online.Backend Backend_Lan -Online.ForceOnline true -PreRound.MinimumPlayersCount 1 -PreRound.OverrideMinimumPlayersCount true -Player.allowRandomSpawnPointSelection true -Server.PLayerCountNeededForMultiplayer 1 -Server.forceCurrentMapOnLoad true -Server.ForceStartMapOnLoad true -Server.ScoringLogEnabled 1 -GameMode.disbalePreRound true -Game.DisablePreRound true -Game.logFileEnable true -Game.fastStartupEnable true -GameSettings.MaxPlayerCount 64 -Client.Team 1 -Game.MaxPlayerCount 1 -Game.MaxSpectatorCount 1 -client.joinMultiplayer true -LocalPlayer.respawn 1 -LocalPlayer.respawn true -RtsClientSettings.EnableLogging true -Core.ForceDebugLog true -Game.LogFileEnable true -Server.AdministrationLogEnabled true -Debug.B4BugMenuToggleEnabled true -Game.DisablePreRound true</value>
   </data>
   <metadata name="toolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>650, 17</value>
   </metadata>
   <data name="toolStripButton9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="toolStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>755, 17</value>
+  </metadata>
+  <data name="toolStripButton8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="toolStripButton11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG

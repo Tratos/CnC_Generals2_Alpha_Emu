@@ -62,6 +62,10 @@
             this.rtb6 = new System.Windows.Forms.RichTextBox();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -103,10 +107,6 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox9 = new System.Windows.Forms.ToolStripTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -427,6 +427,33 @@
             this.toolStripButton8.Size = new System.Drawing.Size(86, 22);
             this.toolStripButton8.Text = "Launch Game";
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(70, 22);
+            this.toolStripLabel5.Text = "with Profile:";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Size = new System.Drawing.Size(46, 22);
+            this.toolStripButton11.Text = "Create";
+            this.toolStripButton11.Click += new System.EventHandler(this.toolStripButton11_Click);
             // 
             // tabPage2
             // 
@@ -787,33 +814,6 @@
             // 
             this.timer1.Interval = 20000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton11
-            // 
-            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
-            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Size = new System.Drawing.Size(46, 22);
-            this.toolStripButton11.Text = "Create";
-            this.toolStripButton11.Click += new System.EventHandler(this.toolStripButton11_Click);
-            // 
-            // toolStripLabel5
-            // 
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(70, 22);
-            this.toolStripLabel5.Text = "with Profile:";
             // 
             // Form1
             // 
