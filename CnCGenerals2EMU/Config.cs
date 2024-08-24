@@ -23,6 +23,7 @@ namespace CnCGenerals2EMU
         public static string MakePacket;
         public static string RefreshPacket;
         public static string Exe;
+        public static string Autocomplete;
 
         public static void Init()
         {
@@ -36,6 +37,7 @@ namespace CnCGenerals2EMU
                 Write("LogLevel = Low");
                 Write("MakePacket = true");
                 Write("RefreshPacket = true");
+                Write("Autocomplete = true");
             }
 
         }
@@ -60,6 +62,8 @@ namespace CnCGenerals2EMU
                     Exe = Config.FindEntry("Exe");
                     Logger.Log("Exe Path = " + Exe);
 
+                    Autocomplete = Config.FindEntry("Autocomplete");
+                    Logger.Log("Autocomplete = " + Autocomplete);
                 }
                 else
                 {

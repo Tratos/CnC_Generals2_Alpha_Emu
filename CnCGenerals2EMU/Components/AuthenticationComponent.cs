@@ -118,7 +118,7 @@ namespace CnCGenerals2EMU
                     }
                 if (pi.profile == null)
                 {
-                    BlazeServer.Log("[CLNT] #" + pi.userId + " Could not find player profile mail: " + mail + " !", System.Drawing.Color.Red);
+                    BlazeServer.Log("[CLNT] #" + pi.userId + " Could not find player profile for mail: " + mail + " !", System.Drawing.Color.Red);
                     pi.userId = 0;
                     return;
                 }

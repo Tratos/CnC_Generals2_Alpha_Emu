@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeLibWV", "BlazeLibWV\Bl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeSharkWV", "BlazeSharkWV\BlazeSharkWV.csproj", "{E774C256-9575-4229-A758-24BFA35EC03B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartParameterGenerator", "StartParameterGenerator\StartParameterGenerator.csproj", "{080423F1-F682-47D6-8760-8B215AF3F495}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E774C256-9575-4229-A758-24BFA35EC03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E774C256-9575-4229-A758-24BFA35EC03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E774C256-9575-4229-A758-24BFA35EC03B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080423F1-F682-47D6-8760-8B215AF3F495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080423F1-F682-47D6-8760-8B215AF3F495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080423F1-F682-47D6-8760-8B215AF3F495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080423F1-F682-47D6-8760-8B215AF3F495}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -133,7 +133,6 @@ function discard() {
     shellaccesslayer.execute(request);
 }
 
-
 // Execute an expression and evaluate
 function executeExpression() {
     // Get the input value
@@ -225,11 +224,76 @@ function createGame() {
     }
 }
 
-function createBlazeGame() {
-    var gameName = 'Test';
-    var numPlayers = 1;
+// function createBlazeGame() {
+//     var gameName = 'Test';
+//     var numPlayers = 1;
 
-    var command = 'RtsClient.blazeCreateGame ' + gameName + ' ' + numPlayers;
+//     // var result = shellaccesslayer.execute({_response: ShellResult, url: "/blaze/createGame?gameName=XEVRAC&players=4"});
+//     var command = 'RtsClient.blazeCreateGame ' + gameName + ' ' + numPlayers;
+//     console.log('Executing command:', command);
+
+//     try {
+//         gameclient.execute(command);
+//     } catch (error) {
+//         console.error('Error executing command:', error);
+//     }
+// }
+
+function createBlazeGame() {
+    shellaccesslayer.execute({
+        _response: ShellResult,
+        url: "/blaze/createGame?gameName=Player1&players=4"
+    });
+}
+
+/// Authenticate v2
+
+function blazeAuthenticate() {
+    const request = {
+        _resource: "/blaze/authenticate",
+        email: "test@test.com",
+        password: "test",
+    };
+
+    shellaccesslayer.execute({
+        _response: ShellResult,
+        url: "/blaze/authenticate?email=" + request.email + "&password=" + request.password
+    });
+}
+
+function tokenAuthenticate() {
+    shellaccesslayer.execute({
+        _response: ShellResult,
+        url: "/blaze/tokenauthenticate"
+    });
+}
+
+function ShellResult(res) {
+    // Handle the response here
+    const debugOutput = document.getElementById("debugOutput");
+    debugOutput.innerText = 'RESPONSE: ' + JSON.stringify(res, null, 2);
+
+    // You can add additional logic based on the response if needed
+    if (res.success) {
+        console.log("Authentication successful!");
+    } else {
+        console.error("Authentication failed. Error: ", res.error);
+    }
+}
+
+function blazeJoinGame() {
+    const request = {
+        url: "/blaze/joinGame?gameID=1"
+    }
+    shellaccesslayer.execute(request);
+}
+
+
+function blazeJoinGame1() {
+    var hosting = "localhost",
+    var playerId = 1;
+
+    var command = 'RtsClient.joinGame ' + playerId + ' ' + hosting + ' ';
     console.log('Executing command:', command);
 
     try {
@@ -239,28 +303,9 @@ function createBlazeGame() {
     }
 }
 
-function blazeAuthenticate() {
-    const request = {
-        _resource: "/blaze/authenticate",
-        email: "test@test.com",
-        password: "test",
-    }
-    shellaccesslayer.execute(request);
-}
 
-function tokenAuthenticate() {
-    const request = {
-        url: "/blaze/tokenauthenticate"
-    }
-    shellaccesslayer.execute(request);
-}
 
-function blazeJoinGame() {
-    const request = {
-        url: "/blaze/joinGame?gameID=123"
-    }
-    shellaccesslayer.execute(request);
-}
+
 
 function getConfig() {
     const request = {

@@ -30,8 +30,6 @@ namespace CnCGenerals2EMU
         public Form1()
         {
             InitializeComponent();
-            AttachAutoCompleteHandler(rtb5);
-            AttachAutoCompleteHandler(rtb6);
         }
 
         private void AttachAutoCompleteHandler(RichTextBox richTextBox)
@@ -65,7 +63,14 @@ namespace CnCGenerals2EMU
 
             Config.InitialConfig();
             readConfig();
+            StartParameter();
             RefreshProfiles();
+
+            if(Config.Autocomplete.ToLower() == "true")
+            {
+                AttachAutoCompleteHandler(rtb5);
+                AttachAutoCompleteHandler(rtb6);
+            }
 
             if (Config.MakePacket.ToLower() == "true")
             {
@@ -134,7 +139,37 @@ namespace CnCGenerals2EMU
                     Logger.Log("Error: " + ex.Message);
                 }
             }
+        }
 
+        private void StartParameter()
+        {
+            string filePath = loc + "conf\\start_parameter_client.txt";
+            if (File.Exists(filePath))
+            {
+                using (StreamReader reader = new StreamReader(filePath, Encoding.UTF8))
+                {
+                    rtb6.Text = reader.ReadToEnd();
+                }
+            }
+            else
+            {
+                Logger.Log("Client Config not found!",Color.Red);
+                rtb6.Text = "-thinclient 0 -Core.LogLevel Debug -Core.DiablogLevel Debug";
+            }
+
+            string filePath1 = loc + "conf\\start_parameter_server.txt";
+            if (File.Exists(filePath1))
+            {
+                using (StreamReader reader1 = new StreamReader(filePath1, Encoding.UTF8))
+                {
+                    rtb5.Text = reader1.ReadToEnd();
+                }
+            }
+            else
+            {
+                Logger.Log("Server Config not found!", Color.Red);
+                rtb5.Text = "-thinclient 1 -Core.LogLevel Debug -Core.DiablogLevel Debug";
+            }
         }
 
         private void richTextBox_KeyUp(object sender, RichTextBox richTextBox, KeyEventArgs e)
